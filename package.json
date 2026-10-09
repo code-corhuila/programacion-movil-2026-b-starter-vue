@@ -1,0 +1,34 @@
+{
+  "name": "starter-vue",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Starter Ionic Vue - Parcial practico C2 - Programacion Movil 2026-B (CORHUILA)",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . --ext .ts,.vue"
+  },
+  "dependencies": {
+    "@ionic/vue": "9.0.3",
+    "@ionic/vue-router": "9.0.3",
+    "ionicons": "8.1.0",
+    "vue": "3.5.42",
+    "vue-router": "5.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "6.0.9",
+    "@vue/eslint-config-typescript": "12.0.0",
+    "@vue/test-utils": "2.5.0",
+    "eslint": "8.57.1",
+    "eslint-plugin-vue": "9.33.0",
+    "jsdom": "22.1.0",
+    "typescript": "5.9.3",
+    "vite": "8.3.0",
+    "vitest": "4.1.11",
+    "vue-tsc": "2.2.12"
+  }
+}

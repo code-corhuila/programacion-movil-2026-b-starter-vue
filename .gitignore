@@ -1,0 +1,21 @@
+# Dependencias y compilados
+/node_modules
+/dist
+/coverage
+
+# Secretos: el archivo .env NUNCA se versiona; solo .env.example
+.env
+.env.*
+!.env.example
+
+# Ionic / editores / sistema
+/.ionic
+/.idea
+/.vscode/*
+!/.vscode/extensions.json
+*.log
+npm-debug.log*
+*.tmp
+*~
+.DS_Store
+Thumbs.db
