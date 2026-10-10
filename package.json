@@ -1,20 +1,26 @@
 {
-  "name": "starter-vue",
+  "name": "catalogo-productos-ionic-vue",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.2.0",
   "type": "module",
-  "description": "Starter Ionic Vue - Parcial practico C2 - Programacion Movil 2026-B (CORHUILA)",
+  "description": "Starter Ionic Vue - Parcial practico C2 (v2) - Programacion Movil 2026-B (CORHUILA)",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "vite",
+    "server": "node server/index.js",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "lint": "eslint . --ext .ts,.vue"
+    "lint": "eslint . --ext .ts,.vue,.js --max-warnings 0"
   },
   "dependencies": {
     "@ionic/vue": "9.0.3",
     "@ionic/vue-router": "9.0.3",
+    "cors": "2.8.6",
+    "express": "5.3.0",
     "ionicons": "8.1.0",
     "vue": "3.5.42",
     "vue-router": "5.3.1"

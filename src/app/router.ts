@@ -8,15 +8,19 @@ const routes: Array<RouteRecordRaw> = [
   { path: '/', redirect: '/productos' },
   {
     path: '/productos',
-    component: () => import('@/features/products/ui/ProductListPage.vue'),
+    component: () => import('@/features/products/presentation/ProductListPage.vue'),
   },
   {
     path: '/productos/nuevo',
-    component: () => import('@/features/products/ui/ProductFormPage.vue'),
+    component: () => import('@/features/products/presentation/ProductFormPage.vue'),
   },
   {
     path: '/productos/:id',
-    component: () => import('@/features/products/ui/ProductDetailPage.vue'),
+    component: () => import('@/features/products/presentation/ProductDetailPage.vue'),
+  },
+  {
+    path: '/productos/:id/editar',
+    component: () => import('@/features/products/presentation/ProductFormPage.vue'),
   },
 ]
 

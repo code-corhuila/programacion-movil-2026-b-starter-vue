@@ -1,49 +1,30 @@
-import { afterEach, describe, expect, it } from 'vitest'
-import {
-  getProduct,
-  getProducts,
-  ProductsServiceError,
-  resetProductsService,
-  setErrorSimulation,
-} from '../data/products-service'
+import { describe, expect, it } from 'vitest'
+import { formatCOP } from '../domain/product'
 
-// PRUEBA DE EJEMPLO (ya dada): sirve para que `npm test` corra desde el inicio
-// y para ver como se escribe una prueba en este proyecto.
-describe('products-service (ejemplo dado)', () => {
-  afterEach(() => {
-    resetProductsService()
+// PRUEBA UNITARIA DE EJEMPLO (dada): sirve para que `npm test` corra desde el inicio y
+// para ver como se escribe una prueba de una funcion pura del dominio.
+describe('formatCOP (ejemplo dado)', () => {
+  it('usa punto de miles y el simbolo de pesos', () => {
+    expect(formatCOP(1250000)).toBe('$ 1.250.000')
+    expect(formatCOP(2500)).toBe('$ 2.500')
   })
 
-  it('entrega los 8 productos del JSON con sus campos', async () => {
-    const products = await getProducts()
-
-    expect(products).toHaveLength(8)
-    expect(products[0]).toEqual({
-      id: 1,
-      name: 'Auriculares Bluetooth',
-      price: 59.9,
-      category: 'Audio',
-      stock: 14,
-    })
-  })
-
-  it('rechaza con NOT_FOUND cuando el producto no existe', async () => {
-    await expect(getProduct(999)).rejects.toMatchObject({ code: 'NOT_FOUND' })
-  })
-
-  it('rechaza con NETWORK cuando se simula el error', async () => {
-    setErrorSimulation(true)
-
-    await expect(getProducts()).rejects.toBeInstanceOf(ProductsServiceError)
+  it('no agrega separador a valores menores de mil y redondea los decimales', () => {
+    expect(formatCOP(900)).toBe('$ 900')
+    expect(formatCOP(1999.6)).toBe('$ 2.000')
   })
 })
 
-// TODO(Parte 3): reemplace estos dos espacios por sus pruebas reales.
-// Una prueba nueva debe vivir en este archivo o en otro dentro de __tests__/.
+// TODO(Parte 5): escriba sus pruebas unitarias reales (al menos dos) en este archivo o en
+// otro dentro de __tests__/. Reemplace estos espacios.
 describe('validateProduct', () => {
-  it.todo('TODO(Parte 3): rechaza un nombre vacio y un precio menor o igual que 0')
+  it.todo('TODO(Parte 5): acepta un borrador valido y rechaza nombre vacio, precio <= 0, categoria invalida y stock negativo o decimal')
 })
 
 describe('toProductView', () => {
-  it.todo('TODO(Parte 3): formatea precio y existencias, y marca el stock bajo')
+  it.todo('TODO(Parte 5): formatea el precio y calcula la etiqueta de stock (Agotado, Pocas unidades, Disponible)')
+})
+
+describe('filterProducts', () => {
+  it.todo('TODO(Parte 5): filtra por texto sin distinguir mayusculas y por categoria exacta')
 })

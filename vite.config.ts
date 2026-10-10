@@ -11,7 +11,9 @@ export default defineConfig({
     },
   },
   test: {
+    // Las pruebas de la app corren en jsdom. Las de la API (server/__tests__) declaran
+    // "// @vitest-environment node" en su primera linea.
     environment: 'jsdom',
-    include: ['src/**/*.{test,spec}.ts'],
+    include: ['src/**/*.{test,spec}.ts', 'server/**/*.{test,spec}.js'],
   },
 })
